@@ -2,6 +2,7 @@ import json
 import os
 import argparse
 
+
 def carregar_dados(arquivo="medicamentos.json"):
     """Carrega a lista de medicamentos do arquivo JSON."""
     if not os.path.exists(arquivo):
@@ -9,10 +10,12 @@ def carregar_dados(arquivo="medicamentos.json"):
     with open(arquivo, 'r', encoding='utf-8') as f:
         return json.load(f)
 
+
 def salvar_dados(dados, arquivo="medicamentos.json"):
     """Salva a lista de medicamentos no arquivo JSON."""
     with open(arquivo, 'w', encoding='utf-8') as f:
         json.dump(dados, f, indent=4, ensure_ascii=False)
+
 
 def adicionar_medicamento(nome, horario, arquivo="medicamentos.json"):
     """Adiciona um novo medicamento após validar as entradas."""
@@ -20,15 +23,17 @@ def adicionar_medicamento(nome, horario, arquivo="medicamentos.json"):
         raise ValueError("O nome do medicamento não pode ser vazio.")
     if not horario or not horario.strip():
         raise ValueError("O horário não pode ser vazio.")
-    
+
     dados = carregar_dados(arquivo)
     dados.append({"nome": nome.strip(), "horario": horario.strip()})
     salvar_dados(dados, arquivo)
     return True
 
+
 def listar_medicamentos(arquivo="medicamentos.json"):
     """Retorna todos os medicamentos cadastrados."""
     return carregar_dados(arquivo)
+
 
 def main():
     parser = argparse.ArgumentParser(description="MedTracker - Controle de Medicamentos")
@@ -63,6 +68,7 @@ def main():
         print(f"Erro de validação: {e}")
     except Exception as e:
         print(f"Erro inesperado: {e}")
+
 
 if __name__ == "__main__":
     main()
