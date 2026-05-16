@@ -23,3 +23,4 @@ Cuidadores de idosos, pessoas em tratamentos contínuos e qualquer indivíduo qu
    ```bash
    git clone [LINK DO SEU REPOSITORIO]
    cd med-tracker
+🚀 **Link do Deploy (Aplicação Online):** [Clique aqui para rodar o projeto no Replit](https://replit.com/@fernandomf/med-tracker)
