@@ -50,9 +50,9 @@ def test_buscar_info_medicamento_sucesso(mock_get):
     # Configura o 'mock' (dublê) para fingir que a API retornou código 200 e um JSON com o texto
     mock_get.return_value.status_code = 200
     mock_get.return_value.json.return_value = {"extract": "A Dipirona é um analgésico e antitérmico."}
-    
+
     resultado = buscar_info_medicamento("Dipirona")
-    
+
     # Valida se o sistema repassou a string corretamente e se chamou a URL certa
     assert resultado == "A Dipirona é um analgésico e antitérmico."
     mock_get.assert_called_once_with("https://pt.wikipedia.org/api/rest_v1/page/summary/Dipirona", timeout=5)
