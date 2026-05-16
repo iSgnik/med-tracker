@@ -72,7 +72,7 @@ def main():
         if args.comando == "add":
             adicionar_medicamento(args.nome, args.horario)
             print(f"Sucesso! Medicamento '{args.nome}' adicionado para as {args.horario}.")
-        
+
         elif args.comando == "list":
             meds = listar_medicamentos()
             if not meds:
@@ -82,12 +82,12 @@ def main():
                 for m in meds:
                     print(f"⏰ {m['horario']} - 💊 {m['nome']}")
                 print("-----------------------------\n")
-                
+
         elif args.comando == "info":
             print(f"Buscando informações sobre '{args.nome}' na internet...\n")
             resumo = buscar_info_medicamento(args.nome)
             print(f"📖 Resultado: {resumo}")
-            
+
         else:
             parser.print_help()
     except ValueError as e:
